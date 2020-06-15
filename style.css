@@ -35,7 +35,7 @@ body{
 .stBtn{
   color: #fff;
   border-radius: 16px;
-  margin: 1%;
+  margin: 1% auto;
 }
 .flip-card-back {
   line-height: 750%;
@@ -49,7 +49,9 @@ body{
   height: 100%;
   border: 5px solid white;
 }
-
+  .rstBtn{
+    display: none;
+  }
 @media screen and (max-width:875px) {
   .card{
     width: 15%;
