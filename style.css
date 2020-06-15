@@ -1,0 +1,76 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  padding: 2% 5%;
+  text-align: center;
+  color: #f4f6ff;
+  background-color: #1b6ca8;
+}
+.title{
+  margin: 2%;
+}
+.card{
+  pointer-events: none;
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  margin: .45%;
+  border-radius: 32px;
+  transition: transform 0.2s;
+  transform-style: preserve-3d;
+  transform: rotateY(180deg);
+  background-color: #10375c;
+  font-weight: bolder;
+}
+.card:hover{
+  font-weight: lighter;
+}
+.show{
+  transform: rotateY(0deg);
+}
+.card-text{
+  font-size: 250%;
+}
+.stBtn{
+  color: #fff;
+  border-radius: 16px;
+  margin: 1%;
+}
+.flip-card-back {
+  line-height: 750%;
+  position: absolute;
+  background-color: #2980b9;
+  color: white;
+  border-radius: 32px;
+  transform: rotateY(180deg);
+  content: " asa";
+  width: 100%;
+  height: 100%;
+  border: 5px solid white;
+}
+
+@media screen and (max-width:875px) {
+  .card{
+    width: 15%;
+  }
+  .flip-card-back{
+    line-height: 810%;
+  }
+}
+@media screen and (max-width:475px)
+ {
+  .card{
+    width: 22%;
+    font-size: 85%;
+    font-weight: bold;
+    border-radius: 35%;
+  }
+  .flip-card-back{
+    border-radius: 35%;
+    line-height: 600%;
+  }
+  .card-title{
+    display: none;
+  }
+}
