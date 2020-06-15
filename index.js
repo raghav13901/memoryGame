@@ -8,6 +8,10 @@ var checkAlpha = [];
 var clickId = [];
 var won = 0;
 var ids=[];
+function playSound(name){
+  var audio = new Audio("sounds/"+name+".mp3");
+  audio.play();
+}
 function checkPos(x, y) {
   if (pos.indexOf(x) == -1) {
     print(x, y);
@@ -38,7 +42,18 @@ for (i = 0; i < 12; i++) {
   var randNoAlpha = Math.floor(Math.random() * 26);
   checkAlphaPos(randNoAlpha);
 }
-
+function checkWon(){
+  if(won == 12){
+    setTimeout(function(){
+      $("h1").html("You WON!!!");
+      $("h3").html("Click Re-Start to play Again");
+      $(".rstBtn").css("display","block");
+      $(".startBtn").css("display","none");
+      var audio = new Audio("sounds/applause.mp3");
+      audio.play();
+    },1500);
+  }
+}
 function start(){
   $(".card").addClass("show");
   setTimeout(function() {
@@ -47,10 +62,13 @@ function start(){
   setTimeout(function(){
     alert("Now,Click on any 2 cards which you think has same alphabets");
     $(".card").css("pointer-events","all");
-  },5010);
-  document.getElementById("stBtn").setAttribute("disabled","true");
+  },5510);
+  $(".startBtn").css("display","none");
 }
 function check(event){
+  // console.log(won);
+  var audio = new Audio("sounds/click.mp3");
+  audio.play();
     if(ids.indexOf(event.id) == -1){
       $(event).addClass("show");
       clickId.push(event.id);
@@ -61,15 +79,17 @@ function check(event){
       setTimeout(function(){
 
           // console.log(checkAlpha);
-          if(checkAlpha[0] == checkAlpha[1]){
+          if(checkAlpha[0] == checkAlpha[1] && clickId[0]!=clickId[1]){
             ids.push(clickId[1]);
             ids.push(clickId[0]);
-            console.log(ids);
+            // console.log(ids);
             checkAlpha = [];
             clickId=[];
             click=0;
-            won++;
+            ++won;
             $(".card").css("pointer-events","all");
+            var audio = new Audio("sounds/correct.mp3");
+            audio.play();
           }else{
             $("#"+clickId[0]).removeClass("show");
             $("#"+clickId[1]).removeClass("show");
@@ -79,16 +99,33 @@ function check(event){
             clickId=[];
             click=0;
             $(".card").css("pointer-events","all");
+            var audio = new Audio("sounds/wrong.mp3");
+            audio.play();
           }
+          checkWon();
       },500);
     }
-      if(won == 11){
-        setTimeout(function(){
-          $("h1").html("You WON!!!");
-          $("h3").html("Reload to play Again");
-        },1000);
-      }
+
     }
+}
+function reStart(){
+  $(".startBtn").css("display","block");
+  $(".card").removeClass("show");
+  $(".rstBtn").css("display","none");
+  $(".card").css("pointer-events","all");
+  pos = [];
+  usedAlpha = [];
+  click = 0;
+  checkAlpha = [];
+  clickId = [];
+  won = 0;
+  ids=[];
+  for (i = 0; i < 12; i++) {
+    var randNoAlpha = Math.floor(Math.random() * 26);
+    checkAlphaPos(randNoAlpha);
+  }
+  $("h1").html("Let's Test your Memory");
+  $("h3").html("Click on Start then click on any 2 cards which you think has same alphabets");
 }
 // console.log(pos);
 // console.log(usedAlpha);
