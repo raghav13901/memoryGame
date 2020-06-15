@@ -76,3 +76,9 @@ body{
     display: none;
   }
 }
+@media screen and (max-width:350px){
+  .card{
+    font-size: 75%;
+    font-weight: normal;
+  }
+}
