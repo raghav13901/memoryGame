@@ -62,7 +62,7 @@ function start(){
   setTimeout(function(){
     alert("Now,Click on any 2 cards which you think has same alphabets");
     $(".card").css("pointer-events","all");
-  },5510);
+  },5500);
   $(".startBtn").css("display","none");
 }
 function check(event){
@@ -112,7 +112,7 @@ function reStart(){
   $(".startBtn").css("display","block");
   $(".card").removeClass("show");
   $(".rstBtn").css("display","none");
-  $(".card").css("pointer-events","all");
+  $(".card").css("pointer-events","none");
   pos = [];
   usedAlpha = [];
   click = 0;
