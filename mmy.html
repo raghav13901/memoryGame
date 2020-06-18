@@ -10,9 +10,16 @@
 </head>
 
 <body>
+  <div class="level">
+    Level: <span class="levels">0</span>
+  </div>
   <div class="title">
     <h1>Let's Test your Memory</h1>
     <h3>Click on Start then click on any 2 cards which you think has same alphabets</h3>
+    <h4 class="chance">Chances Left : <span class="life">10</span></h4>
+    <div class="timer">
+      <h5><span class="min">00</span>:<span class="sec">00</span></h5>
+    </div>
   </div>
   <button type="button" name="button" class="btn-lg btn-primary stBtn startBtn" onclick="start()" id="stBtn">Start</button>
   <button type="button" name="button" class="btn-lg btn-primary stBtn rstBtn" onclick="reStart()" id="stBtn">Re-Start</button>
