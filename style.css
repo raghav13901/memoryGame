@@ -7,8 +7,26 @@ body{
   color: #f4f6ff;
   background-color: #1b6ca8;
 }
+h4{
+  color: #78ff11;
+}
 .title{
   margin: 2%;
+}
+.chances{
+  color: #78ff11;
+}
+.level{
+  color: #78ff11;
+  position: absolute;
+  top:5%;
+  right: 5%;
+  font-size: 150%;
+}
+.timer{
+  position: absolute;
+  top:5%;
+  left: 5%;
 }
 .card{
   pointer-events: none;
@@ -68,12 +86,24 @@ body{
     font-weight: bold;
     border-radius: 35%;
   }
+  h3{
+    display: none;
+  }
   .flip-card-back{
     border-radius: 35%;
     line-height: 600%;
   }
+  h1{
+    font-size: 150%;
+  }
   .card-title{
     display: none;
+  }
+  .life{
+    font-size: 100%;
+  }
+  .timer,.level{
+    position: static;
   }
 }
 @media screen and (max-width:350px){
@@ -81,4 +111,5 @@ body{
     font-size: 75%;
     font-weight: normal;
   }
+
 }
