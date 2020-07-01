@@ -55,6 +55,7 @@ function checkWonOrLose(){
       $("h1").html("You WON!!!");
       $(".rstBtn").css("display","block");
       if(level==2){
+        levels = 0;
         $("h3").html("Click Re-Start to play Again");
         $(".rstBtn").html("Re-Start");
       }else{
@@ -65,7 +66,7 @@ function checkWonOrLose(){
       $(".card").css("pointer-events","none");
       var audio = new Audio("sounds/applause.mp3");
       audio.play();
-    },1500);
+    },500);
   }
   if(noOfLife == 0){
     levels=0
@@ -209,6 +210,7 @@ function reStart(){
   $(".chance").css("color","#78ff11");
   $(".min").html('00');
   $(".sec").html('00');
+  $(".levels").html(levels+1);
 }
   // console.log(pos);
   // console.log(usedAlpha);
